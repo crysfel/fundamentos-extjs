@@ -9,6 +9,10 @@
 Ext.define('MyApp.data.Cliente',{
     extend      : 'MyApp.data.Usuario',
     
+    mixins      : {
+        observable : 'Ext.util.Observable'
+    },
+
     rfc     : '',
     calle   : '',
     colonia : '',
@@ -19,13 +23,24 @@ Ext.define('MyApp.data.Cliente',{
     constructor : function(options){
         console.log('Constructor en la subclase!');
 
+        this.addEvents({
+            'success' : true,
+            'failure' : true
+        });
+
         this.callParent([options]);
+        this.mixins.observable.constructor.call(this);
     },
 
     login       : function(item){
+        var me = this;
         console.log('Login: Dentro de la subclase');
 
         this.callParent(arguments);
+
+        setTimeout(function(){
+            me.fireEvent('success',new Date(),3,2,1);
+        },2000);
     },
 
     agregarPedido : function(item){
