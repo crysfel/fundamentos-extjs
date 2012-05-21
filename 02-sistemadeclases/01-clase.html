@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8" />
+	<title>Clases</title>
+	<link rel="stylesheet" href="../extjs-4.1.0/resources/css/ext-all.css"/>
+	<script type="text/javascript" src="../extjs-4.1.0/ext-dev.js"></script>
+	<script type="text/javascript" src="Usuario.js"></script>
+	<script type="text/javascript">
+		Ext.onReady(function(){
+
+			var usuario = Ext.create('MyApp.data.Usuario',{
+				username	: 'john',
+				password	: '123',
+				email		: 'john@gmail.com'
+			});
+
+			var usuario2 = Ext.create('MyApp.data.Usuario',{
+				username	: 'susan',
+				password	: 'ok',
+				email		: 'susana@gmail.com'
+			});
+
+			usuario.login();
+			usuario2.login();
+
+
+		});
+	</script>
+</head>
+<body>
+
+</body>
+</html>

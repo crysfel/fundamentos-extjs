@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8" />
+	<title>Sobre-escritura</title>
+	<link rel="stylesheet" href="../extjs-4.1.0/resources/css/ext-all.css"/>
+	<script type="text/javascript" src="../extjs-4.1.0/ext-dev.js"></script>
+	<script type="text/javascript" src="Usuario.js"></script>
+	<script type="text/javascript" src="Cliente.js"></script>
+	<script type="text/javascript">
+		Ext.onReady(function(){
+
+			var cliente = Ext.create('MyApp.data.Cliente',{
+				username	: 'john',
+				password	: '123',
+				email		: 'john@gmail.com',
+				calle      	: 'Maria Josefa 2053',
+				colonia		: 'Ignacio Mejia'
+			});
+
+			cliente.login();
+			cliente.agregarPedido({
+				nombre : 'Mesa',
+				precio : 123.65
+			});
+
+		});
+	</script>
+</head>
+<body>
+
+</body>
+</html>
