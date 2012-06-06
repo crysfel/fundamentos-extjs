@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8" />
+	<title>Statics</title>
+	<link rel="stylesheet" href="../extjs-4.1.0/resources/css/ext-all.css"/>
+	<script type="text/javascript" src="../extjs-4.1.0/ext-all-dev.js"></script>
+	<script type="text/javascript" src="Usuario.js"></script>
+	<script type="text/javascript" src="Cliente.js"></script>
+	<script type="text/javascript">
+		Ext.onReady(function(){
+
+			var cliente = Ext.create('MyApp.data.Cliente',{
+				username	: 'john',
+				password	: '123',
+				email		: 'john@gmail.com',
+				calle      	: 'Maria Josefa 2053',
+				colonia		: 'Ignacio Mejia'
+			});
+
+			var cliente2 = Ext.create('MyApp.data.Cliente',{
+				username	: 'john',
+				password	: '123',
+				email		: 'john@gmail.com',
+				calle      	: 'Maria Josefa 2053',
+				colonia		: 'Ignacio Mejia'
+			});
+
+			console.log(cliente.id,cliente2.id);
+
+			MyApp.data.Usuario.getNextId();
+			MyApp.data.Usuario.getNextId();
+			MyApp.data.Usuario.getNextId();
+
+			var cliente3 = Ext.create('MyApp.data.Cliente',{
+				username	: 'john',
+				password	: '123',
+				email		: 'john@gmail.com',
+				calle      	: 'Maria Josefa 2053',
+				colonia		: 'Ignacio Mejia'
+			});
+
+			console.log(cliente3.id);
+
+		});
+	</script>
+</head>
+<body>
+
+</body>
+</html>

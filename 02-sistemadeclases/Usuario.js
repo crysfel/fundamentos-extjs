@@ -1,6 +1,13 @@
 
 Ext.define('MyApp.data.Usuario',{
 
+	statics : {
+		contador : 0,
+		getNextId : function(){
+			return ++this.contador;
+		}
+	},
+
 	config : {
 		username	: '',
 		email		: '',
@@ -11,7 +18,7 @@ Ext.define('MyApp.data.Usuario',{
 
 	constructor	: function(options){
 		this.initConfig(options);
-
+		this.id = MyApp.data.Usuario.getNextId();
 	},
 
 	login		: function(options){
