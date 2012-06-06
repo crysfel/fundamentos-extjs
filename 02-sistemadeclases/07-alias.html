@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8" />
+	<title>Alias</title>
+	<link rel="stylesheet" href="../extjs-4.1.0/resources/css/ext-all.css"/>
+	<script type="text/javascript" src="../extjs-4.1.0/ext-all-dev.js"></script>
+	<script type="text/javascript" src="Usuario.js"></script>
+	<script type="text/javascript" src="Cliente.js"></script>
+	<script type="text/javascript" src="ClientePanel.js"></script>
+	<script type="text/javascript">
+		Ext.onReady(function(){
+
+			var contenedor = Ext.create('Ext.panel.Panel',{
+				title : 'Usuarios',
+				width : 300,
+				height: 400,
+				renderTo : Ext.getBody(),
+				items : [{
+					xtype : 'cliente',
+					model : {
+						username : 'juan',
+						nombre : 'Juan',
+						apellido: 'Perez',
+						email : 'juan@bleext.com'
+					}
+				},{
+					xtype : 'cliente',
+					model : {
+						username : 'susana',
+						nombre : 'Suana',
+						apellido: 'Fuentes',
+						email : 'susana@bleext.com'
+					}
+				},{
+					xtype : 'cliente',
+					model : {
+						username : 'pedro',
+						nombre : 'Pedro',
+						apellido: 'Marinez',
+						email : 'juan@bleext.com'
+					}
+				},{
+					xtype : 'cliente',
+					model : {
+						username : 'carolina',
+						nombre : 'Carolina',
+						apellido: 'Perez',
+						email : 'carolina@bleext.com'
+					}
+				}]
+			});
+
+			contenedor.center();
+
+		});
+	</script>
+</head>
+<body>
+
+</body>
+</html>
