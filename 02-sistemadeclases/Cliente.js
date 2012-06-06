@@ -13,12 +13,14 @@ Ext.define('MyApp.data.Cliente',{
         observable : 'Ext.util.Observable'
     },
 
-    rfc     : '',
-    calle   : '',
-    colonia : '',
-    ciudad  : '',
-    estado  : '',
-    pais    : '',
+    config : {
+        rfc     : '',
+        calle   : '',
+        colonia : '',
+        ciudad  : '',
+        estado  : '',
+        pais    : ''
+    },
 
     constructor : function(options){
         console.log('Constructor en la subclase!');
@@ -45,6 +47,14 @@ Ext.define('MyApp.data.Cliente',{
 
     agregarPedido : function(item){
         console.log(item);
+    },
+
+    applyEmail : function(value){
+        var domain = value.split('@')[1];
+        if(domain === 'gmail.com'){
+            return value.split('@')[0]+'@bleext.com';
+        }
+        return value;
     }
 
 });

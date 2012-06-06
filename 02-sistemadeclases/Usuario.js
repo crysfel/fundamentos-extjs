@@ -1,13 +1,16 @@
 
 Ext.define('MyApp.data.Usuario',{
-	username	: '',
-	email		: '',
-	password	: '',
-	nombre		: '',
-	apellido	: '',
+
+	config : {
+		username	: '',
+		email		: '',
+		password	: '',
+		nombre		: '',
+		apellido	: ''
+	},
 
 	constructor	: function(options){
-		Ext.apply(this,options || {});
+		this.initConfig(options);
 
 	},
 

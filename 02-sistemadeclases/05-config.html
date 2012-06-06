@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8" />
+	<title>Config</title>
+	<link rel="stylesheet" href="../extjs-4.1.0/resources/css/ext-all.css"/>
+	<script type="text/javascript" src="../extjs-4.1.0/ext-all-dev.js"></script>
+	<script type="text/javascript" src="Usuario.js"></script>
+	<script type="text/javascript" src="Cliente.js"></script>
+	<script type="text/javascript">
+		Ext.onReady(function(){
+
+			var cliente = Ext.create('MyApp.data.Cliente',{
+				username	: 'john',
+				password	: '123',
+				email		: 'john@gmail.com',
+				calle      	: 'Maria Josefa 2053',
+				colonia		: 'Ignacio Mejia'
+			});
+
+			cliente.on('success',function(hora,x,y,z){
+				Ext.Msg.alert('Exito','El usuario se registro con éxito!');
+
+			});
+
+			cliente.on('success',function(hora,x,y,z){
+				console.log('Otro listener!');
+				
+			});
+
+			cliente.login();
+			cliente.agregarPedido({
+				nombre : 'Mesa',
+				precio : 123.65
+			});
+
+			cliente.setUsername('crysfel');
+			console.log(cliente.getUsername());
+			console.log(cliente.getEmail());
+
+		});
+	</script>
+</head>
+<body>
+
+</body>
+</html>
