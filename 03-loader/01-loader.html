@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8" />
+	<title>Loader</title>
+	<link rel="stylesheet" href="../extjs-4.1.0/resources/css/ext-all.css"/>
+	<script type="text/javascript" src="../extjs-4.1.0/ext-all-dev.js"></script>
+
+	<script type="text/javascript">
+		
+		Ext.Loader.setConfig({
+			enabled : true,
+			paths	: {
+				MyApp : 'js/MyApp'
+			}
+		});
+
+/*
+		Ext.Loader.require('MyApp.model.Client',function(){
+			console.log('Clase cargada con exito!');
+		});
+*/
+
+	//Ext.require(['MyApp.model.Client','MyApp.model.User']);
+	//Ext.require('MyApp.model.User');
+
+	Ext.onReady(function(){	
+		console.log('Clases importadas');
+		Ext.create('MyApp.model.User');
+	});
+
+	</script>
+</head>
+<body>
+
+</body>
+</html>

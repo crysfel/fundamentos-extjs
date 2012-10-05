@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Loader</title>
+    <link rel="stylesheet" href="../extjs-4.1.0/resources/css/ext-all.css"/>
+    <script type="text/javascript" src="../extjs-4.1.0/ext-all-dev.js"></script>
+
+    <script type="text/javascript">
+        
+        Ext.Loader.setConfig({
+            enabled : true,
+            paths   : {
+                MyApp : 'js/MyApp'
+            }
+        });
+
+        Ext.require('MyApp.view.ClientePanel');
+
+        Ext.onReady(function(){ 
+            var panel = Ext.create('MyApp.view.ClientePanel',{
+                renderTo    : Ext.getBody(),
+                width       : 250,
+                height      : 200,
+                cliente     : {
+                    nombre  : 'John',
+                    apellido: 'Doe'
+                }
+            });
+
+            panel.center();
+        });
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
