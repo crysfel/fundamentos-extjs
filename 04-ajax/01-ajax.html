@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Ajax</title>
+    <link rel="stylesheet" href="../extjs-4.1.0/resources/css/ext-all.css"/>
+    <script type="text/javascript" src="../extjs-4.1.0/ext-all-dev.js"></script>
+
+    <script type="text/javascript">
+        
+    //var conn = Ext.create('Ext.data.Connection');
+
+    Ext.Ajax.request({
+        url     : 'serverside/getData.json',
+        success : function(response,options){
+            var info = Ext.decode(response.responseText);
+
+            console.log(info.data);
+        },
+        failure : function(response,options){
+            console.log('Error!!');
+        }
+    });
+
+    Ext.Ajax.request({
+        url     : 'serverside/saveUser.json',
+        method  : 'POST',
+        params  : {
+            nombre : 'Pedro',
+            edad   : 21,
+            genero : 'm'
+        },
+        success : function(response,options){
+            var info = Ext.decode(response.responseText);
+
+            console.log(info.data);
+        },
+        failure : function(response,options){
+            console.log('Error!!');
+        }
+    });    
+
+
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Custom Ajax</title>
+    <link rel="stylesheet" href="../extjs-4.1.0/resources/css/ext-all.css"/>
+    <script type="text/javascript" src="../extjs-4.1.0/ext-all-dev.js"></script>
+    <script type="text/javascript" src="Connection.js"></script>
+
+    <script type="text/javascript">
+        
+     //var Ajax = Ext.create('MyApp.abstract.data.Connection');
+
+    Ext.onReady(function(){
+         MyApp.Ajax.on('ajaxerror',function(error){
+            Ext.Msg.alert('Error',error.message);
+         });
+
+         MyApp.Ajax.request({
+            url : 'serverside/errores.json',
+            success : function(data){
+                console.log('Success en el Ajax',data.output.users);
+            },
+            failure : function(){
+                console.log('Failure en el Ajax');
+            }
+         });
+    });
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

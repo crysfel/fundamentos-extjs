@@ -1,0 +1,27 @@
+{
+    "control" : {
+        "success" : false,
+        "errors"  : [{
+            "code"    : 404,
+            "message" : "El recurso no se encontro en este servidor."
+        }]
+    },
+    "output" : {
+        "users" : [{
+            "id"      : 1,
+            "name"    : "John",
+            "lastname": "Doe",
+            "dob"     : "1980-05-21 17:23:03"
+        },{
+            "id"      : 2,
+            "name"    : "Susan",
+            "lastname": "Smith",
+            "dob"     : "1980-10-16 17:23:03"
+        },{
+            "id"      : 3,
+            "name"    : "Peter",
+            "lastname": "File",
+            "dob"     : "1983-08-03 17:23:03"
+        }]
+    }
+}

@@ -138,6 +138,20 @@ Ext.onReady(function() {
                 sortable: false,
                 xtype: 'actioncolumn',
                 width: 50,
+                text : ''.concat(
+                    'Testing<br>',
+                    '<img src="'+Ext.BLANK_IMAGE_URL+'" class="icon remove-icon" />',
+                    '<img src="'+Ext.BLANK_IMAGE_URL+'" class="icon add-icon" />'
+                ),
+                listeners : {
+                    headerclick : function(container,column,event){
+                        if(event.getTarget('.remove-icon')){
+                            console.log('Remove icon clicked!');
+                        }else if(event.getTarget('.add-icon')){
+                            console.log('Add icon clicked!');
+                        }
+                    }
+                },
                 items: [{
                     icon   : '../shared/icons/fam/delete.gif',  // Use a URL in the icon config
                     tooltip: 'Sell stock',
