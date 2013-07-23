@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Store con Ajax</title>
+    <link rel="stylesheet" href="../ext-4.2.1/resources/css/ext-all.css"/>
+    <script type="text/javascript" src="../ext-4.2.1/ext-all-dev.js"></script>
+    <script type="text/javascript" src="js/model/Factura.js"></script>
+    <script type="text/javascript" src="js/store/Facturas.js"></script>
+
+    <script type="text/javascript">
+    
+    Ext.onReady(function(){
+        var store = Ext.create('MyApp.store.Facturas');
+
+        store.on('load',ejemplo);
+        store.load();
+
+        function ejemplo(store){
+            log('CARGADO!');
+
+            store.each(function(item){
+                log(item);
+            });
+
+            //Agregando un registro nuevo
+            log('INSERTAR RECORD');
+            store.add({
+                cliente     : "Software SA",
+                direccion   : "Camino Viejo #264, Col. Viajeros",
+                fecha       : "2013-04-29 08:16:42",
+                cobrada     : true
+            });
+            store.each(function(factura){
+                log(factura);
+            });
+
+            //Insertar en alguna posición
+            log('INSERTAR RECORD EN POSICION');
+            store.insert(2,{
+                cliente     : "Emprendedores Inc",
+                direccion   : "La Calle 123, Col. Reforma",
+                fecha       : "2013-01-09 10:07:31",
+                cobrada     : true
+            });
+            store.each(function(factura){
+                log(factura);
+            });
+
+            //eliminar record
+            log('ELIMINAR UN RECORD DEL STORE POR "ID"');
+            var r = store.getById(265);
+            store.remove(r);
+            store.each(function(factura){
+                log(factura);
+            });
+
+            //Actualizar un campo
+            log('ACTUALIZAR UN RECORD DEL STORE');
+            var r = store.getById(549);
+            r.set('cliente','Cliente Editado');
+            store.each(function(factura){
+                log(factura);
+            });
+
+            //ordenado
+            log('SORT "cliente" ASC!');
+            store.sort('cliente','ASC');
+            store.each(function(factura){
+                log(factura);
+            });
+
+            //ordenado
+            log('SORT "cliente" DESC!');
+            store.sort('cliente','DESC');
+            store.each(function(factura){
+                log(factura);
+            });
+
+            //Filtrado
+            log('FILTRADO');
+            store.filter("cliente", /Inc$/);
+            store.each(function(factura){
+                log(factura);
+            });
+            store.clearFilter();
+
+            //registros nuevos
+            log('REGISTROS NUEVOS');
+            var recs = store.getNewRecords();
+            Ext.each(recs,function(factura){
+                log(factura);
+            });
+
+            //Registros modificados
+            log('REGISTROS ACTUALIZADOS');
+            recs = store.getUpdatedRecords();
+            Ext.each(recs,function(factura){
+                log(factura);
+            });
+
+            //Registros eliminados
+            log('REGISTROS ELIMINADOS');
+            recs = store.getRemovedRecords();
+            Ext.each(recs,function(factura){
+                log(factura);
+            });
+        }
+
+        var el = Ext.get('console');
+        function log(obj){
+            if(typeof obj === 'string'){
+                Ext.DomHelper.append(el,'<tr><th colspan="4">'+obj+'</th></tr>');
+            }else{
+                Ext.DomHelper.append(el,
+                    '<tr>'+
+                        '<td>'+
+                        obj.get('folio')+
+                        '</td>'+
+                        '<td>'+
+                        obj.get('cliente')+
+                        '</td>'+
+                        '<td>'+
+                        obj.get('direccion')+
+                        '</td>'+
+                        '<td>'+
+                        obj.get('fecha')+
+                        '</td>'+
+                    '</tr>');
+            }
+            
+        }
+    });
+
+    </script>
+    <style type="text/css">
+    #console{width:500px;margin:30px auto;}
+    </style>
+</head>
+<body>
+
+    <table id="console"></table>
+
+</body>
+</html>
